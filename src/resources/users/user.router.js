@@ -14,7 +14,7 @@ router.route('/').get(async (req, res) => {
 
     res.json(users);
   } catch (e) {
-    console.error(e);
+    console.error(e.message);
     res.sendStatus(400);
   }
 });
@@ -25,7 +25,7 @@ router.route('/:id').get(async (req, res) => {
 
     res.json(user);
   } catch (e) {
-    console.error(e);
+    console.error(e.message);
     res.sendStatus(400);
   }
 });
@@ -41,7 +41,7 @@ router.route('/').post(async (req, res) => {
 
     res.json(user);
   } catch (e) {
-    console.log(e);
+    console.error(e.message);
     res.sendStatus(404);
   }
 });
@@ -57,7 +57,7 @@ router.route('/:id').put(async (req, res) => {
 
     res.json(user);
   } catch (e) {
-    console.log(e);
+    console.error(e.message);
     res.sendStatus(404);
   }
 });
@@ -68,7 +68,12 @@ router.route('/:id').delete(async (req, res) => {
 
     res.sendStatus(204);
   } catch (e) {
-    console.log(e);
+    if (e.message === '404') {
+      res.sendStatus(e.message);
+      return;
+    }
+    console.error(e);
+
     res.sendStatus(404);
   }
 });

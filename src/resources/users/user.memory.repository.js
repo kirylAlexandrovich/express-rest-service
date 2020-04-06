@@ -45,6 +45,8 @@ const deleteUser = userId => {
   const dbUser = getById(userId);
 
   users.splice(users.indexOf(dbUser), 1);
+
+  return 200;
 };
 
 module.exports = { getAll, getById, createUser, updateUser, deleteUser };

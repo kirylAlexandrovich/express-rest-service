@@ -46,5 +46,25 @@
         }
       ]
     }
+  ],
+  "tasks": [
+    {
+      "id": "task1",
+      "title": "string",
+      "order": 0,
+      "description": "string",
+      "userId": "string",
+      "boardId": "string",
+      "columnId": "string"
+    },
+    {
+      "id": "task2",
+      "title": "string",
+      "order": 1,
+      "description": "string",
+      "userId": "string",
+      "boardId": "string",
+      "columnId": "string"
+    }
   ]
 }
